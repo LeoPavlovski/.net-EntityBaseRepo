@@ -1,0 +1,43 @@
+﻿@model Cinema;
+
+
+@*We are not going to need form here, because we are not going to publish anything to the database.*@
+
+@{
+    ViewData["Title"] = "Details of the Cinema";
+}
+<div class="row">
+    <input asp-id="@Model.Id" hidden />
+    <div class="col-md-4 offset-2">
+        <p>Details for @Model.Name</p>
+        <div class="row">
+            <form asp-action="Delete" method="post">
+            <div class="col-md-6 offset-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="input-group">
+                    <label asp-for="ProfilePictureURL">Profile Picture</label>
+                    <input asp-for="ProfilePictureURL" readonly />
+                    <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
+                </div>
+                <div class="input-group">
+                    <label asp-for="Name">Profile Picture</label>
+                    <input asp-for="Name" readonly />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="input-group">
+                    <label asp-for="Biography">Profile Picture</label>
+                    <input asp-for="Biography" readonly />
+                    <span asp-validation-for="Biography" class="text-danger"></span>
+                </div>
+
+                <div class="input-group">
+               <input type="submit" value="Confirm" class="btn btn-outline-danger" asp-controller="Cinemas" asp-action="Delete"/>
+               <a asp-controller="Cinemas" asp-action="Index" class="btn btn-outline-primary float-right">Go Back to list</a>
+                </div>
+            </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
